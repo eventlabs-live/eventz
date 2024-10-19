@@ -35,8 +35,18 @@
       <ul>
         <% @likers.each do |user| %>
         <li>
-          <%= link_to user.name, user %>
+          <%= link_to user.name.capitalize, user %>
         </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% if @categories.present? %>
+      <h4>Categories</h4>
+      <ul>
+        <% @categories.each do |cat| %>
+          <li>
+            <%= cat.name.camelize %>
+          </li>
         <% end %>
       </ul>
     <% end %>

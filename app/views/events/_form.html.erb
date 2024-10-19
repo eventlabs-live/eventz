@@ -23,6 +23,11 @@
   <%= f.label :image_file_name %>
   <%= f.text_field :image_file_name %>
 
+
+  <div class="checkboxes">
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+  </div>
+
   <% if defined? message %>
     <%= f.submit "#{message}"%>
   <% else  %>
