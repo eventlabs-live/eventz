@@ -1,8 +1,6 @@
 class Registration < ApplicationRecord
   belongs_to :event
-
-  validates :name, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  belongs_to :user
 
   HOW_HEARD_OPTION = [
     'Newsletter',

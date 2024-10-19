@@ -2,7 +2,7 @@
 <ul class="users">
   <% @users.each do | u | %>
     <li>
-      <%= link_to u.name, u %> created
+      <%= link_to u.name&.capitalize, u %> created
       <%= time_ago_in_words(u.created_at) %>
     </li>
   <% end %>

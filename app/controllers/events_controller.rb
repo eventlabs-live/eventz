@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
 
+  before_action :require_signin, except: [:index, :show]
+  before_action :require_admin, except: [:index, :show]
+
   def index
     @events = Event.upcoming
     # @events = Event.where("starts_at >= ?", Time.now).order("starts_at")
@@ -7,6 +10,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @likers = @event.likers
+    if current_user
+      @like = current_user.likes.find_by(event_id: @event.id)
+    end
   end
 
   def edit
