@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   private
 
   def find_event
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by!(slug: params[:event_id])
   end
 
   helper_method :find_event
