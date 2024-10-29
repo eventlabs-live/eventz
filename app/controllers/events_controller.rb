@@ -50,7 +50,7 @@ class EventsController < ApplicationController
     @event = Event.find_by!(slug: params[:id])
   end
   def event_params
-    params.require(:event).permit(:name, :description, :location, :price, :starts_at, :capacity, :image_file_name,
+    params.require(:event).permit(:name, :description, :location, :price, :starts_at, :capacity, :main_image,
                                   category_ids: [])
   end
 
